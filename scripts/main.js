@@ -19,10 +19,18 @@ function handleLogout() {
 
 function handleSignUp() {
 
-    let data = {userType: "candidate"};
-    
     let userEmail = document.getElementById("emailInput").value
     let userPassword = document.getElementById("passwordInput").value
+
+    let data = {
+        userType: "candidate",
+        name: "",
+        email: userEmail,
+        description: "",
+        experiences: [],
+        skills: [],
+        appliedJobs: [],
+    };
 
     firebase_signUp(userEmail, userPassword, data)
 

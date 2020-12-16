@@ -72,7 +72,8 @@ function handleSignUpCompany(){
         city: cityInput,
         country: countryInput,
         zip: zipInput,
-        validated: false
+        validated: false,
+        jobOffers: []
     }
 
     firebase_signUp(emailInput, password1Input, data)
