@@ -12,7 +12,7 @@ function print_jobs() {
         if (website == "Jobify") {
             $('.jobs').append(
                 '<div class="jobpost media container p-3 mb-2 border-top my-3 bg-dark text-white"">'
-                + '<img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">'
+                + '<img src="img/jobify-logo-light.png" class="align-self-start mr-3" alt="...">'
                 + '<div class="media-body">'
                 + '<h5 class="mt-0">' + title + '</h5>'
                 + '<h5 class="mt-0">' + company + '</h5>'
@@ -53,14 +53,14 @@ function print_jobs() {
 }
 
 function add_new_job(title, company, city, definition) {
-    let keys = Object.keys(job_postings);
+
     let int_keys = [];
 
-    for (let key in keys) {
+    for (let key in job_postings) {
         int_keys.push(parseInt(key));
     }
 
-    let id = (Math.max(...int_keys) + 1).toString;
+    let id = Math.max.apply(Math, int_keys) + 1;
 
     let new_job = {
         "title": title,
@@ -75,6 +75,8 @@ function add_new_job(title, company, city, definition) {
 
 }
 
-add_new_job("Bilkent Mezunu Jigolo", "Kardeşler Baklava", "Ankara", "İş tanımını siz biliyosunuz...");
+add_new_job("Backend Engineer", "Kizagan A.Ş", "Ankara", "We are looking for Backend Engineers in our Ankara office located at a relaxed fun environment in Hacettepe Teknokent.");
+add_new_job("Frontend Engineer", "Kizagan A.Ş", "Ankara", "We are looking for Frontend Engineers who is experienced with React.js.");
+
 print_jobs();
 
