@@ -16,3 +16,35 @@
 .card-style {
     margin: 15% auto;
 }
+
+.filter {
+    width: 20%;
+}
+
+.search-field {
+    width: 50%;
+    margin: 5% auto;
+}
+
+.jobs {
+    margin: 5% auto;
+}
+
+.list {
+    width: 25%;
+    margin: 0 auto;
+}
+
+.clear {
+    margin-left: 25px;
+    clear: both;
+}
+
+.panel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-section {
+    margin: 20px;
+}
