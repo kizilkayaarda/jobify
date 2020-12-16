@@ -9,7 +9,7 @@ for (let id in job_postings) {
     let link = job_postings[id]["link"];
 
     $('.jobs').append(
-    '<div class="jobpost media container p-3 mb-2 border-top my-3" style="hover{background:#53a7ea;}">'
+    '<div class="jobpost media container p-3 mb-2 border-top my-3"">'
     + '<img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">' 
     + '<div class="media-body">' 
     + '<h5 class="mt-0">' + title + '</h5>'
@@ -21,6 +21,4 @@ for (let id in job_postings) {
     + '</div>'
     + '</div>'
     );
-
-    console.log(id + ' ' + title + ' ' + company + " " + city + " " + definition + " " + website + " " + link);
 }
