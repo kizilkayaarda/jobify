@@ -63,7 +63,7 @@ function firebase_signOut(){
         window.alert("sign out successful");
         localStorage.userId = null;
         localStorage.userType = "";
-        window.replace("index.html")
+        window.location.replace("index.html")
       }).catch(function(error) {
           window.alert("error happened while signing out ", error)
       });
