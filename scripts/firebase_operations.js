@@ -69,3 +69,15 @@ function firebase_signOut(){
       });
 } 
 
+function firebase_create_job_offer(dataUpload){
+    firebase.firestore().collection('jobOffers').doc("offersList").get().then((data) => {
+        let finalData = data.data().job_posting_data;
+
+        finalData.push(dataUpload)
+
+        firebase.firestore().collection('jobOffers').doc("offersList").set({finalData})
+        .then({
+            
+        })
+    })
+}
