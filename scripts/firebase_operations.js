@@ -21,6 +21,7 @@ function firebase_signUp( email, password, userData ){
                     userData
                 }).then(function(docRef){
                     window.alert("Hey ");
+                    window.location.replace("login.html");
                 }).catch(function(error){
                     window.alert("Error adding document: ", error);
                 })

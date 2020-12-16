@@ -10,7 +10,8 @@ function handleSignIn() {
     if(localStorage.userId && localStorage.userType === "company"){
         window.location.replace("enterprise_homepage.html");
     } else if(localStorage.userId && localStorage.userType === "candidate"){
-        window.location.replace("enterprise_homepage.html");
+        //window.location.replace("enterprise_homepage.html");
+        window.alert("yapılacak");
     }
 }
 
@@ -22,6 +23,7 @@ function handleLogout() {
 }
 
 function handleSignUp() {
+
     let data = {userType: "candidate"};
     
     let userEmail = document.getElementById("exampleInputEmail1").value
