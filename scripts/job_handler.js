@@ -1,55 +1,75 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
+async function print_jobs() {
 
-function print_jobs() {
-    for (let id in job_postings) {
-        let title = job_postings[id]["title"];
-        let company = job_postings[id]["company"];
-        let city = job_postings[id]["city"];
-        let definition = job_postings[id]["definition"];
-        let website = job_postings[id]["website"];
-        let link = job_postings[id]["link"];
+    await sleep(1000);
+    //window.alert("HEY HO")
+    var job_postings = [];
 
-        if (website == "Jobify") {
-            $('.jobs').append(
-                '<div class="jobpost media container p-3 mb-2 border-top my-3 bg-dark text-white"">'
-                + '<img src="img/jobify-logo-light.png" class="align-self-start mr-3" alt="...">'
-                + '<div class="media-body">'
-                + '<h5 class="mt-0">' + title + '</h5>'
-                + '<h5 class="mt-0">' + company + '</h5>'
-                + '<h5 class="mt-0">' + city + '</h5>'
-                + '<h5 class="mt-0">' + website + '</h5>'
-                + '<p>' + definition + "</p>"
-                + '<a class="btn btn-warning" href="' + link + '" role="button">Apply</a>'
-                + '</div>'
-                + '</div>'
-            );
+    firebase.firestore().collection('jobOffers').doc('offersList').get().then( (data) => {
+        job_postings = data.data().job_posting_data
+
+        //window.alert(job_postings)
+
+        for (let item in job_postings) {
+            //window.alert(item)
+            let title = job_postings[item]["title"];
+            let company = job_postings[item]["company"];
+            let city = job_postings[item]["city"];
+            let definition = job_postings[item]["definition"];
+            let website = job_postings[item]["website"];
+            let link = job_postings[item]["link"];
+
+            if (website == "Jobify") {
+                $('.jobs').append(
+                    '<div class="jobpost media container p-3 mb-2 border-top my-3 bg-dark text-white"">'
+                    + '<img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">'
+                    + '<div class="media-body">'
+                    + '<h5 class="mt-0">' + title + '</h5>'
+                    + '<h5 class="mt-0">' + company + '</h5>'
+                    + '<h5 class="mt-0">' + city + '</h5>'
+                    + '<h5 class="mt-0">' + website + '</h5>'
+                    + '<p>' + definition + "</p>"
+                    + '<a class="btn btn-warning" href="' + link + '" role="button">Apply</a>'
+                    + '</div>'
+                    + '</div>'
+                );
+            }
         }
-    }
 
-    for (let id in job_postings) {
-        let title = job_postings[id]["title"];
-        let company = job_postings[id]["company"];
-        let city = job_postings[id]["city"];
-        let definition = job_postings[id]["definition"];
-        let website = job_postings[id]["website"];
-        let link = job_postings[id]["link"];
+        for (let item in job_postings) {
+            let title = job_postings[item]["title"];
+            let company = job_postings[item]["company"];
+            let city = job_postings[item]["city"];
+            let definition = job_postings[item]["definition"];
+            let website = job_postings[item]["website"];
+            let link = job_postings[item]["link"];
 
-        if (website != "Jobify") {
-            $('.jobs').append(
-                '<div class="jobpost media container p-3 mb-2 border-top my-3"">'
-                + '<img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">'
-                + '<div class="media-body">'
-                + '<h5 class="mt-0">' + title + '</h5>'
-                + '<h5 class="mt-0">' + company + '</h5>'
-                + '<h5 class="mt-0">' + city + '</h5>'
-                + '<h5 class="mt-0">' + website + '</h5>'
-                + '<p>' + definition + "</p>"
-                + '<a class="btn btn-primary" href="' + link + '" role="button">Go to the Website</a>'
-                + '</div>'
-                + '</div>'
-            );
+            if (website != "Jobify") {
+                $('.jobs').append(
+                    '<div class="jobpost media container p-3 mb-2 border-top my-3"">'
+                    + '<img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">'
+                    + '<div class="media-body">'
+                    + '<h5 class="mt-0">' + title + '</h5>'
+                    + '<h5 class="mt-0">' + company + '</h5>'
+                    + '<h5 class="mt-0">' + city + '</h5>'
+                    + '<h5 class="mt-0">' + website + '</h5>'
+                    + '<p>' + definition + "</p>"
+                    + '<a class="btn btn-primary" href="' + link + '" role="button">Go to the Website</a>'
+                    + '</div>'
+                    + '</div>'
+                );
+            }
         }
-    }
+
+
+
+
+    })
+
+    
 }
 
 function add_new_job(title, company, city, definition) {
@@ -74,9 +94,9 @@ function add_new_job(title, company, city, definition) {
     job_postings[id] = new_job;
 
 }
-
-add_new_job("Backend Engineer", "Kizagan A.Ş", "Ankara", "We are looking for Backend Engineers in our Ankara office located at a relaxed fun environment in Hacettepe Teknokent.");
-add_new_job("Frontend Engineer", "Kizagan A.Ş", "Ankara", "We are looking for Frontend Engineers who is experienced with React.js.");
+//add_new_job("Bilkent Mezunu Jigolo", "Kardeşler Baklava", "Ankara", "İş tanımını siz biliyosunuz...");
 
 print_jobs();
+
+
 

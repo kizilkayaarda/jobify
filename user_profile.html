@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Jobify - Profile</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" href="user_homepage.html">Jobify</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="user_homepage.html">Jobs</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="user_profile.html">Profile</a>
+                        <a class="dropdown-item" href="user_applications.html">Applications</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="index.html">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="profile-section">
+        <h1>General</h1>
+        <div class="card center text-center" style="width: 18rem;">
+            <img src="img/user.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Jobify</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Some dude</h6>
+                <p class="card-text">Cool dude, like really cool and shit, you know what I mean</p>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editInfo">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-section">
+        <h1>Experience</h1>
+        <table class="table table-sm company-signup-form" style="margin-top: 30px;">
+            <thead>
+                <tr>
+                    <th scope="col">Company name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Time period</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Apple</td>
+                    <td>California</td>
+                    <td>2017-present</td>
+                    <td>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editExperience">Edit</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteExperience">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Google</td>
+                    <td>California</td>
+                    <td>2014-2017</td>
+                    <td>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editExperience">Edit</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteExperience">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addExperience">
+                            Add
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="profile-section">
+        <h1>Skills</h1>
+        <table class="table table-sm company-signup-form" style="margin-top: 30px;">
+            <thead>
+                <tr>
+                    <th scope="col">Skill</th>
+                    <th scope="col">Level</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Python</td>
+                    <td>Advanced</td>
+                    <td>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editSkill">Edit</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteSkill">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>C++</td>
+                    <td>Advanced</td>
+                    <td>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editSkill">Edit</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteSkill">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSkill">
+                            Add
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="profile-section">
+        <div class="card">
+            <h5 class="card-header">Account</h5>
+            <div class="card-body">
+                <h5 class="card-title">Email</h5>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#accountSettings">Edit</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit info -->
+    <div class="modal fade" id="editInfo" tabindex="-1" aria-labelledby="editInfo" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nameInput">Name</label>
+                            <input type="text" class="form-control" id="nameInput" placeholder="Name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete experience -->
+    <div class="modal fade" id="deleteExperience" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete experience</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete experience?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit experience -->
+    <div class="modal fade" id="editExperience" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit experience</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="companyInput">Company name</label>
+                            <input type="text" class="form-control" id="companyInput" placeholder="Company">
+                        </div>
+                        <div class="form-group">
+                            <label for="locationInput">Location</label>
+                            <input type="text" class="form-control" id="locationInput" placeholder="Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="timeInput">Time</label>
+                            <input type="text" class="form-control" id="timeInput" placeholder="Time period">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete skill -->
+    <div class="modal fade" id="deleteSkill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete skill</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete skill?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit skill -->
+    <div class="modal fade" id="editSkill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit skill</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="skillInput">Skill</label>
+                            <input type="text" class="form-control" id="skillInput" placeholder="Skill">
+                        </div>
+                        <div class="form-group">
+                            <label for="levelInput">Level</label>
+                            <input type="text" class="form-control" id="levelInput" placeholder="Level">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add skill -->
+    <div class="modal fade" id="addSkill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add skill</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="skillInput">Skill</label>
+                            <input type="text" class="form-control" id="skillInput" placeholder="Skill">
+                        </div>
+                        <div class="form-group">
+                            <label for="levelInput">Level</label>
+                            <input type="text" class="form-control" id="levelInput" placeholder="Level">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add experience -->
+    <div class="modal fade" id="addExperience" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add experience</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="companyInput">Company name</label>
+                            <input type="text" class="form-control" id="companyInput" placeholder="Company">
+                        </div>
+                        <div class="form-group">
+                            <label for="locationInput">Location</label>
+                            <input type="text" class="form-control" id="locationInput" placeholder="Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="timeInput">Time</label>
+                            <input type="text" class="form-control" id="timeInput" placeholder="Time period">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for changing account details-->
+    <div class="modal fade" id="accountSettings" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit account info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail">Email</label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="oldPassword">Old password</label>
+                                <input type="password" class="form-control" id="oldPassword" placeholder="Old password">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="newPassword">New password</label>
+                                <input type="password" class="form-control" id="newPassword" placeholder="New password">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="repeatPassword">Repeat password</label>
+                                <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat password">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
