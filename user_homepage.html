@@ -31,7 +31,7 @@
                         <a class="dropdown-item" href="user_profile.html">Profile</a>
                         <a class="dropdown-item" href="user_applications.html">Applications</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.html">Log Out</a>
+                        <a class="dropdown-item" onClick="firebase_signOut()">Log Out</a>
                     </div>
                 </li>
             </ul>
@@ -50,52 +50,16 @@
                     <input type="text" class="form-control" id="location" placeholder="Search for location">
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary center" onClick="firebase_signOut()">Search</button>
+                    <!-- <button type="button" class="btn btn-primary center">Search</button> -->
                 </div>
-                <!-- <a class="btn btn-primary center">Search</a> -->
+                <a class="btn btn-primary center" onClick="make_search()">Search</a>
             </form>
         </div>
     </div>
 
     <!-- Job offerings-->
     <div class="jobs">
-        <div class="media">
-            <img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">
-            <div class="media-body">
-                <h5 class="mt-0">Top-aligned media</h5>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-                    congue
-                    felis in faucibus.</p>
-                <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-        </div>
 
-        <button type="button" class="btn btn-primary clear" data-toggle="modal" data-target="#applyToPosition">Apply</button>
-
-        <div class="media">
-            <img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">
-            <div class="media-body">
-                <h5 class="mt-0">Top-aligned media</h5>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-                    congue
-                    felis in faucibus.</p>
-                <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-        </div>
-
-        <button type="button" class="btn btn-primary clear" data-toggle="modal" data-target="#applyToPosition">Apply</button>
-
-        <div class="media">
-            <img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">
-            <div class="media-body">
-                <h5 class="mt-0">Top-aligned media</h5>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-                    congue
-                    felis in faucibus.</p>
-                <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-        </div>
-        <button type="button" class="btn btn-primary clear" data-toggle="modal" data-target="#applyToPosition">Apply</button>
     </div>
 
     <!-- Modal for applying to position -->
@@ -140,13 +104,15 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
     <script src="scripts/main.js"></script>
 
     <script src="scripts/firebase_operations.js"></script>
+    
+    <script type="text/javascript" src="scripts/job_handler.js"></script> 
+    <script src="scripts/user_homepage.js"></script>
 
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 
