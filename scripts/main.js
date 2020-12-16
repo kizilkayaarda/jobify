@@ -1,14 +1,12 @@
+localStorage.registeredCompanies = []
+
 
 // this code checks whether the user is logged in or not
 if(localStorage.id !== null && typeof(localStorage.id) !== undefined ){
-    let test_text = document.getElementById("test log out");
-    
-    test_text.innerHTML = "logged in already " + localStorage.id;
+    window.alert("Already logged in")
 } else {
-    let test_text = document.getElementById("test log out");
-    
-    test_text.innerHTML = localStorage.id;
-}
+    window.alert("Not logged in")
+}   
 
 function handleSignIn() {
     // if username and password are valid then
