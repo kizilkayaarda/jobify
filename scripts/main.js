@@ -1,3 +1,5 @@
+localStorage.registeredCompanies = []
+
 
 // this code checks whether the user is logged in or not
 if(localStorage.id !== null && typeof(localStorage.id) !== undefined ){
