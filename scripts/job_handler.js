@@ -15,7 +15,14 @@ async function print_jobs() {
         job_list = job_postings;
         //window.alert(job_postings)
         
-        refreshJobOffers(job_postings, false);
+        
+
+        if( localStorage.userType === "candidate"){
+            refreshJobOffers(job_postings, true);
+        } else {
+            refreshJobOffers(job_postings, false);
+        }
+
     })
 }
 
@@ -41,7 +48,7 @@ function refreshJobOffers(job_postings, apply){
 
         if (website == "Jobify") {
             let buttonText;
-            if(apply){
+            if(apply == true){
                 buttonText = "Apply"
             } else {
                 buttonText = "Go to website"
@@ -55,7 +62,7 @@ function refreshJobOffers(job_postings, apply){
                 + '<h5 class="mt-0">' + city + '</h5>'
                 + '<h5 class="mt-0">' + website + '</h5>'
                 + '<p>' + definition + "</p>"
-                + '<a class="btn btn-warning" href="' + link + '" role=' + buttonText +'>Apply</a>'
+                + '<a class="btn btn-warning" href="' + link + '" role=button>' + buttonText + '</a>'
                 + '</div>'
                 + '</div>'
             );
@@ -71,6 +78,12 @@ function refreshJobOffers(job_postings, apply){
         let link = job_postings[item]["link"];
 
         if (website != "Jobify") {
+            let buttonText;
+            if(apply == true){
+                buttonText = "Apply"
+            } else {
+                buttonText = "Go to website"
+            }
             $('.jobs').append(
                 '<div class="jobpost media container p-3 mb-2 border-top my-3"">'
                 + '<img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">'
@@ -80,7 +93,7 @@ function refreshJobOffers(job_postings, apply){
                 + '<h5 class="mt-0">' + city + '</h5>'
                 + '<h5 class="mt-0">' + website + '</h5>'
                 + '<p>' + definition + "</p>"
-                + '<a class="btn btn-primary" href="' + link + '" role="button">Go to the Website</a>'
+                + '<a class="btn btn-primary" href="' + link + '" role="button">' + buttonText + '</a>'
                 + '</div>'
                 + '</div>'
             );

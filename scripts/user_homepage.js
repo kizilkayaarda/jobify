@@ -8,7 +8,7 @@ function make_search(){
     else if(keyword_location === ""){
         make_search_title_skill_company()
     } else {
-        // do both
+        make_search_for_both()
     }
 }
 
@@ -16,19 +16,21 @@ function make_search(){
 function make_search_for_location(){
     let keyword = document.getElementById("location").value.toLowerCase();
 
-    window.alert(keyword)
-
     var finalList = [];
 
     for (let id in job_list) {
-        window.alert("city: " + job_list[id]["city"].toLowerCase() + " keyword: " + keyword)
         if(job_list[id]["city"].toLowerCase().indexOf(keyword) !== -1){
-            window.alert("aldı");
             finalList.push(job_list[id]);
         }
     }
 
-    refreshJobOffers(finalList, true);
+    if( localStorage.userType === "candidate"){
+        refreshJobOffers(finalList, true);
+    } else {
+        refreshJobOffers(finalList, false);
+    }
+
+    
 }
 
 function make_search_title_skill_company(){
@@ -42,6 +44,37 @@ function make_search_title_skill_company(){
         }
     }
 
-    refreshJobOffers(finalList, true);
+    if( localStorage.userType === "candidate"){
+        refreshJobOffers(finalList, true);
+    } else {
+        refreshJobOffers(finalList, false);
+    }
+}
+
+function make_search_for_both(){
+    let keyword_title_skill_company = document.getElementById("titleSkillCompany").value.toLowerCase();
+    let keyword = document.getElementById("location").value.toLowerCase();
+
+    var finalList = [];
+
+    for (let id in job_list) {
+        if(job_list[id]["title"].toLowerCase().indexOf(keyword_title_skill_company) !== -1){
+            finalList.push(job_list[id]);
+        }
+    }
+
+    var realFinalList = [];
+
+    for (let id in finalList) {
+        if(finalList[id]["city"].toLowerCase().indexOf(location) !== -1){
+            realFinalList.push(job_list[id]);
+        }
+    }
+
+    if( localStorage.userType === "candidate"){
+        refreshJobOffers(realFinalList, true);
+    } else {
+        refreshJobOffers(realFinalList, false);
+    }
 
 }

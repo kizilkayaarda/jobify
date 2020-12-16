@@ -44,11 +44,8 @@ function firebase_signIn( email, password ){
         localStorage.userId = firebase.auth().currentUser.uid;
 
         firebase.firestore().collection('users').doc(localStorage.userId).get().then( (data) => {
-            window.alert("heyo")
             if( data !== null && typeof(data) != undefined){
-                window.alert("yuppi")
                 localStorage.userType = data.data().userData.userType;
-                window.alert(localStorage.userType)
             }
         })
 
