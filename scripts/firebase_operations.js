@@ -61,7 +61,7 @@ function firebase_signIn( email, password ){
     })
 }
 
-function firebase_singOut(){
+function firebase_signOut(){
     firebase.auth().signOut().then(function() {
         window.alert("sign out successful");
         localStorage.userId = null;

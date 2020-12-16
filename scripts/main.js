@@ -1,7 +1,7 @@
 function handleSignIn() {
-    let userEmail = document.getElementById("exampleInputEmail1").value
+    let userEmail = document.getElementById("email").value
     window.alert(userEmail)
-    let userPassword = document.getElementById("exampleInputPassword1").value
+    let userPassword = document.getElementById("password").value
     window.alert(userPassword)
     firebase_signIn(userEmail, userPassword)
 

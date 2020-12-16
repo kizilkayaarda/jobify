@@ -34,6 +34,7 @@
         <div class="form-group">
             <input type="password" class="form-control" id="password" placeholder="Password">
         </div>
+        <a class="btn btn-primary" onClick="handleSignIn()">Log in</a>
         <a href="signup.html" class="center badge badge-light">Not registered? Sign Up!</a>
         <p class="mt-5 mb-3 text-muted">© Jobify AB 2020</p>
     </form>
@@ -44,13 +45,13 @@
 
 </html>
 
-    <a class="btn btn-primary" onClick="handleSignIn()">Log in</a>
-  <script>
-    var firebaseConfig = {
+    
   <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
       apiKey: "AIzaSyDmR0gM_sY5LKIHi8SmG64wG-9jZPHFCzE",
       authDomain: "jobify-417f9.firebaseapp.com",
       projectId: "jobify-417f9",
