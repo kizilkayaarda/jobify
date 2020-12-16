@@ -1,65 +1,32 @@
-firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // User logged in already or has just logged in.
-      localStorage.userId = user.uid;
-    } else {
-      // User not logged in or has just logged out.
-      localStorage.userId = null;
-    }
-});
-
-function firebase_signUp( email, password, userType, userData ){
+function firebase_signUp( email, password, userData ){
     const auth = firebase.auth();
 
-    if(typeof(userData) == undefined && userData == null){
+    window.alert(userData.userType)
+
+    if(typeof(userData) == undefined || userData == null){
         userData = {notDeclerad: true}
     }
 
     auth.createUserWithEmailAndPassword(email, password)
     .then((user) => {
         window.alert("Sign Up successful")
+        firebase.firestore().collection('users').doc('information').get().then( (data) => {
+            var num = data.data().numberOfUsers;
+            num = num + 1;
 
-        // firebase store operations
-        if(userType == "company"){
-            
-            firebase.firestore().collection('companies').doc('information').get().then( (data) => {
-                window.alert(data.data().numberOfCompanies)
-                var num = data.data().numberOfCompanies;
-                num = num + 1;
-
-                firebase.firestore().collection('companies').doc('information').update({
-                    "numberOfCompanies": num
-                }).then(() => {
-                    firebase.firestore().collection('companies').doc(user.uid).set({
-                        userData
-                    }).then(function(docRef){
-                        window.alert("Document written with ID: ", docRef.id);
-                    }).catch(function(error){
-                        window.alert("Error adding document: ", error);
-                    })
+            firebase.firestore().collection('users').doc('information').update({
+                "numberOfUsers": num
+            }).then(() => {
+                firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set({
+                    userData
+                }).then(function(docRef){
+                    window.alert("Hey ");
+                }).catch(function(error){
+                    window.alert("Error adding document: ", error);
                 })
             })
-        } else {
-            firebase.firestore().collection('candidates').doc('information').get().then( (data) => {
-                window.alert(data.data().numberOfCompanies)
-                var num = data.data().numberOfCompanies;
-                num = num + 1;
-
-                firebase.firestore().collection('candidates').doc('information').update({
-                    "numberOfCandidates": num
-                }).then(() => {
-                    firebase.firestore().collection('candidates').doc(user.uid).set({
-                        userData
-                    }).then(function(docRef){
-                        window.alert("Document written with ID: ", docRef.id);
-                    }).catch(function(error){
-                        window.alert("Error adding document: ", error);
-                    })
-                })
-            })
-        }
-    })
-    .catch((error) => {
+        })
+    }).catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
 
@@ -70,10 +37,20 @@ function firebase_signUp( email, password, userType, userData ){
 function firebase_signIn( email, password ){
     const auth = firebase.auth();
 
-    auth.signInWithEmailAndPassword("ensmrdane@gmail.com", "123456")
+    auth.signInWithEmailAndPassword(email, password)
     .then((user) => {
-        // signed in
-        // direct to the page
+        window.alert(firebase.auth().currentUser.uid)
+        localStorage.userId = firebase.auth().currentUser.uid;
+
+        firebase.firestore().collection('users').doc(localStorage.userId).get().then( (data) => {
+            window.alert("heyo")
+            if( data !== null && typeof(data) != undefined){
+                window.alert("yuppi")
+                localStorage.userType = data.data().userData.userType;
+                window.alert(localStorage.userType)
+            }
+        })
+
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -83,5 +60,13 @@ function firebase_signIn( email, password ){
     })
 }
 
-
+function firebase_singOut(){
+    firebase.auth().signOut().then(function() {
+        window.alert("sign out successful");
+        localStorage.userId = null;
+        localStorage.userType = "";
+      }).catch(function(error) {
+          window.alert("error happened while signing out ", error)
+      });
+} 
 
