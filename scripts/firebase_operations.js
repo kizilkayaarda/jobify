@@ -73,10 +73,10 @@ function firebase_create_job_offer(dataUpload){
         let job_posting_data = data.data().job_posting_data;
 
         job_posting_data.push(dataUpload)
-
+        
         firebase.firestore().collection('jobOffers').doc("offersList").set({job_posting_data})
         .then({
-            
+            // successfull
         })
     })
 }
