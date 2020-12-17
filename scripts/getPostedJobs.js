@@ -45,7 +45,7 @@ async function getPostedJobs(){
                 '</a>' +
                 '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#editPosition" id="' + finalList[i].jobId + '" onClick="loadToEditPost(this.id)">Edit</button>' +
                 '<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#closeApplication" id="' + finalList[i].jobId + '" onClick="closePost(this.id)">Close</button>' +
-                '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePosition" id="' + finalList[i].jobId + '" onClick="deletePost(this.id)">Delete</button>' +
+                '<button type="button" class="btn btn-danger" data-toggle="modal" id="' + finalList[i].jobId + '" onClick="deletePost(this.id)">Delete</button>' +
                 '</div>'
                 )
             }
