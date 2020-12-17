@@ -46,7 +46,7 @@ function refreshJobOffers(job_postings, apply){
         let website = job_postings[item]["website"];
         let link = job_postings[item]["link"];
 
-        if (website == "Jobify") {
+        if (website == "jobify") {
             let buttonText;
             if(apply == true){
                 buttonText = "Apply"
@@ -55,7 +55,7 @@ function refreshJobOffers(job_postings, apply){
             }
             $('.jobs').append(
                 '<div class="jobpost media container p-3 mb-2 border-top my-3 bg-dark text-white"">'
-                + '<img src="img/jobify-logo.png" class="align-self-start mr-3" alt="...">'
+                + '<img src="img/jobify-logo-light.png" class="align-self-start mr-3" alt="...">'
                 + '<div class="media-body">'
                 + '<h5 class="mt-0">' + title + '</h5>'
                 + '<h5 class="mt-0">' + company + '</h5>'
@@ -77,7 +77,7 @@ function refreshJobOffers(job_postings, apply){
         let website = job_postings[item]["website"];
         let link = job_postings[item]["link"];
 
-        if (website != "Jobify") {
+        if (website != "jobify") {
             let buttonText;
             if(apply == true){
                 buttonText = "Apply"
@@ -123,8 +123,6 @@ function add_new_job(title, company, city, definition) {
     job_postings[id] = new_job;
 
 }
-//add_new_job("Bilkent Mezunu Jigolo", "Kardeşler Baklava", "Ankara", "İş tanımını siz biliyosunuz...");
-
 print_jobs();
 
 
