@@ -37,7 +37,8 @@ function addPosition(){
             jobId: uniqueId,
             link: "",
             title: jobTitleInput,
-            website: "jobify"
+            website: "jobify",
+            applicants: []
         }
 
         window.alert(JSON.stringify(job_posting_data))
