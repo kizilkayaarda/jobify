@@ -10,14 +10,14 @@ async function print_jobs() {
     //window.alert("HEY HO")
     var job_postings = [];
 
-    firebase.firestore().collection('jobOffers').doc('offersList').get().then( (data) => {
+    firebase.firestore().collection('jobOffers').doc('offersList').get().then((data) => {
         job_postings = data.data().job_posting_data
         job_list = job_postings;
         //window.alert(job_postings)
-        
-        
 
-        if( localStorage.userType === "candidate"){
+
+
+        if (localStorage.userType === "candidate") {
             refreshJobOffers(job_postings, true);
         } else {
             refreshJobOffers(job_postings, false);
@@ -26,10 +26,10 @@ async function print_jobs() {
     })
 }
 
-function refreshJobOffers(job_postings, apply){
+function refreshJobOffers(job_postings, apply) {
     $('.jobs').empty();
 
-    if( job_postings.length === 0){
+    if (job_postings.length === 0) {
         $('.jobs').append(
             '<div class="jobpost media container p-3 mb-2 border-top my-3 bg-dark text-white"">'
             + 'No data to display'
@@ -48,7 +48,7 @@ function refreshJobOffers(job_postings, apply){
 
         if (website == "jobify") {
             let buttonText;
-            if(apply == true){
+            if (apply == true) {
                 buttonText = "Apply"
             } else {
                 buttonText = "Go to website"
@@ -79,7 +79,7 @@ function refreshJobOffers(job_postings, apply){
 
         if (website != "jobify") {
             let buttonText;
-            if(apply == true){
+            if (apply == true) {
                 buttonText = "Apply"
             } else {
                 buttonText = "Go to website"
@@ -99,6 +99,16 @@ function refreshJobOffers(job_postings, apply){
             );
         }
     }
+
+    document.head.insertAdjacentHTML('beforeend', '<style>.jobpost:hover{'
+        + 'background: #fff;'
+        + '-webkit-box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.67);'
+        + '-moz-box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.67);'
+        + 'box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.67);'
+        + 'transition: all .1s ease-in-out;'
+        + 'transform: scale(1.01);'
+        + 'z-index:9999;'
+        + '}</style>');
 }
 
 function add_new_job(title, company, city, definition) {
