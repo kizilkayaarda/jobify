@@ -67,13 +67,8 @@ function loadToEditPost(jobId){
         for(let i in job_posting_data){
             if(jobId == job_posting_data[i].jobId){
                 index = i;
-                window.alert(index);
             }
         }
-
-        window.alert(job_posting_data[index].title)
-
-
         document.getElementById("jobTitleInput2").value = job_posting_data[index].title
         document.getElementById("locationInput2").value = job_posting_data[index].city
         document.getElementById("descriptionInput2").value = job_posting_data[index].definition

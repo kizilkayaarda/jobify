@@ -1,8 +1,6 @@
 function firebase_signUp( email, password, userData ){
     const auth = firebase.auth();
 
-    window.alert(userData.userType)
-
     if(typeof(userData) == undefined || userData == null){
         userData = {notDeclerad: true}
     }
@@ -39,7 +37,6 @@ function firebase_signIn( email, password ){
 
     auth.signInWithEmailAndPassword(email, password)
     .then((user) => {
-        window.alert(firebase.auth().currentUser.uid)
         localStorage.userId = firebase.auth().currentUser.uid;
 
         firebase.firestore().collection('users').doc(localStorage.userId).get().then( (data) => {

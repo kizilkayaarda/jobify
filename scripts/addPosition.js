@@ -41,8 +41,6 @@ function addPosition(){
             applicants: []
         }
 
-        window.alert(JSON.stringify(job_posting_data))
-
         firebase.firestore().collection('users').doc(localStorage.userId).get().then( (data2) => {
             let userData = data.data().userData
             let jobOffers = userData.jobOffers
@@ -50,8 +48,6 @@ function addPosition(){
             jobOffers.push(job_post_data.jobId);
             userData.jobOffers = jobOffers;
             
-            window.alert(JSON.stringify(jobOffers))
-
             firebase.firestore().collection('users').doc(localStorage.userId).set({userData}).then(function(){
                 firebase.firestore().collection('jobOffers').doc("offersList").get().then( (data3) => {
                     let job_posting_data = data3.data().job_posting_data;

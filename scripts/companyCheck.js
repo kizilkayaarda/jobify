@@ -5,7 +5,6 @@ function sleep(ms) {
 function companyCheck(){
     
     if(localStorage.userType !== "candidate"){
-        window.alert("bura bura")
         window.location.replace("index.html")
     }
 }
