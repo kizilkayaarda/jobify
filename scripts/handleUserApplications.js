@@ -113,7 +113,7 @@ function cancelApplication(jobId){
                 for(let i = 0 ; i < job_posting_data.length; i++){
                     if(job_posting_data[i].jobId === jobId){
                         let appliedCandidates = job_posting_data[i].appliedCandidates;
-
+                        
                         let finalData = []
 
                         for(let index2 = 0; index < appliedCandidates.length; index2++){

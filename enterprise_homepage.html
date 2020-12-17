@@ -185,7 +185,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Create</button>
+                    <button type="button" class="btn btn-primary" onclick="addPosition()">Create</button>
                 </div>
             </div>
         </div>
@@ -228,6 +228,40 @@
             </div>
         </div>
     </div>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+        apiKey: "AIzaSyDmR0gM_sY5LKIHi8SmG64wG-9jZPHFCzE",
+        authDomain: "jobify-417f9.firebaseapp.com",
+        projectId: "jobify-417f9",
+        storageBucket: "jobify-417f9.appspot.com",
+        messagingSenderId: "319397809241",
+        appId: "1:319397809241:web:10c5c01b05229cf86ff548"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="scripts/main.js"></script>
+
+    <script src="scripts/firebase_operations.js"></script>
+    
+    <script src="scripts/job_postings.js"></script>
+
+    <script src="scripts/addPosition.js"></script>
+    
+    
+    
+    
     <script src="scripts/userCheck.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
