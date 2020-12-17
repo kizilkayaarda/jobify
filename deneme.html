@@ -34,7 +34,25 @@
         
         <script src="scripts/job_postings.js"></script>
 
-        <button onClick = deploy()>deploy</button>
+        <button onClick = deploy2()>deploy</button>
+
+        <script>
+            function deploy2(){
+                let data = {
+                    city: "Ankara", 
+                    company: "abc",
+                    companyId: "-1",
+                    definition: "oyle boyle",
+                    link: "www.google.com",
+                    title: "aranıyoruz",
+                    website: "google"
+                }
+
+                firebase_create_job_offer(data);
+            }
+        </script>
+
+
         <script>
             function deploy(){
                 firebase.firestore().collection('jobOffers').doc('information').get().then( (data) => {

@@ -20,7 +20,6 @@ function firebase_signUp( email, password, userData ){
                 firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set({
                     userData
                 }).then(function(docRef){
-                    window.alert("Hey ");
                     window.location.replace("login.html");
                 }).catch(function(error){
                     window.alert("Error adding document: ", error);
@@ -44,11 +43,8 @@ function firebase_signIn( email, password ){
         localStorage.userId = firebase.auth().currentUser.uid;
 
         firebase.firestore().collection('users').doc(localStorage.userId).get().then( (data) => {
-            window.alert("heyo")
             if( data !== null && typeof(data) != undefined){
-                window.alert("yuppi")
                 localStorage.userType = data.data().userData.userType;
-                window.alert(localStorage.userType)
             }
         })
 
@@ -66,8 +62,25 @@ function firebase_signOut(){
         window.alert("sign out successful");
         localStorage.userId = null;
         localStorage.userType = "";
+        window.location.replace("index.html")
       }).catch(function(error) {
           window.alert("error happened while signing out ", error)
       });
 } 
 
+function firebase_create_job_offer(dataUpload){
+    firebase.firestore().collection('jobOffers').doc("offersList").get().then((data) => {
+        let job_posting_data = data.data().job_posting_data;
+
+        job_posting_data.push(dataUpload)
+
+        firebase.firestore().collection('jobOffers').doc("offersList").set({job_posting_data})
+        .then({
+            
+        })
+    })
+}
+
+function firebase_pull_applied_job_offers(){
+
+}
